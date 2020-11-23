@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+<h:head>
+    <title>Book Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+          type="text/css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+    <style type="text/css">
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+
+</h:head>
+<f:view>
+
+    <div class="container " style="margin-top: 20px">
+        <h:form id="form" styleClass="form-horizontal border-secondary">
+            <div class="form-group row ">
+                <div class="col">
+                    <h:outputLabel for="name">Book Name:</h:outputLabel></div>
+                <div class="col-sm-10">
+                    <h:inputText id="name" value="#{bookCategoryBean.bookDto.name}"
+                                 rendered="#{bookCategoryBean.edit==false}" required="true"
+                                 requiredMessage="Invalid Field" styleClass="form-control"/>
+                    <h:inputText id="nameEdit" value="#{bookCategoryBean.bookDto.name}"
+                                 rendered="#{bookCategoryBean.edit==true}" required="true"
+                                 requiredMessage="Invalid Field" styleClass="form-control"/>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <div class="col">
+                    <h:outputLabel for="desc">Description:</h:outputLabel></div>
+                <div class="col-sm-10">
+                    <h:inputTextarea id="desc" value="#{bookCategoryBean.bookDto.description}"
+                                     rendered="#{bookCategoryBean.edit==false}" required="true"
+                                     requiredMessage="Invalid Field" styleClass="form-control"/>
+                    <h:inputTextarea id="firstNameedt" value="#{bookCategoryBean.bookDto.description}"
+                                     rendered="#{bookCategoryBean.edit==true}" required="true"
+                                     requiredMessage="Invalid Field" styleClass="form-control"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col">
+                    <h:commandButton id="submit" value="submit" action="#{bookCategoryBean.addBook}" update="form2"
+                                     rendered="#{bookCategoryBean.edit==false}" styleClass="btn btn-primary w-25"/>
+                    <h:commandButton id="save" value="save"
+                                     action="#{bookCategoryBean.updateBook(bookCategoryBean.bookDto)}"
+                                     rendered="#{bookCategoryBean.edit==true}" styleClass="btn-primary btn w-25"/>
+                    <h:commandButton id="cancel" value="Cancel"
+                                     action="#{bookCategoryBean.cancelEdit}"
+                                     rendered="#{bookCategoryBean.edit==true}" styleClass="btn-danger btn w-25 "
+                                     style="margin-left: 5px" update="form" immediate="true"/>
+
+
+                </div>
+            </div>
+        </h:form>
+        <p:separator/>
+    </div>
+    <div class="container">
+        <h:form id="form2" rendered="#{not empty bookCategoryBean.bookDtoList}">
+
+            <h:dataTable value="#{bookCategoryBean.bookDtoList}" var="book">
+                <h:column><f:facet name="header">Book Name</f:facet>#{book.name}</h:column>
+                <h:column><f:facet name="header">Description</f:facet>#{book.description}</h:column>
+                <h:column><f:facet name="header">Created Date</f:facet>#{book.createdDate}</h:column>
+                <h:column><f:facet name="header">Modified Date</f:facet>#{book.lastUpdatedDate}</h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Operation</f:facet>
+                    <h:commandButton id="edit" value="Edit" action="#{bookCategoryBean.editBook(book)}"
+                                     styleClass="btn btn-info" update ="form" immediate="true"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Operation</f:facet>
+                    <h:commandButton id="delete" value="Delete" action="#{bookCategoryBean.deleteBook(book)}"
+                                     styleClass="btn btn-danger"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </div>
+
+</f:view>
+
+</html>

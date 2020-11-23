@@ -1,0 +1,9 @@
+,idea/
+/target/
+/DemoGroupB-ejb/target/
+/DemoGroupB-web/target/
+/DemoGroupB-entity/target/
+/DemoGroupB-ear/target/
+/Demo-ejb/target/
+/Demo-entity/target/
+/Demo-web/target/

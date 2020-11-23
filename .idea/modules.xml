@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DemoGroupB.iml" filepath="$PROJECT_DIR$/DemoGroupB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DemoGroupB-ear/DemoGroupB-ear.iml" filepath="$PROJECT_DIR$/DemoGroupB-ear/DemoGroupB-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DemoGroupB-ejb/DemoGroupB-ejb.iml" filepath="$PROJECT_DIR$/DemoGroupB-ejb/DemoGroupB-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DemoGroupB-entity/DemoGroupB-entity.iml" filepath="$PROJECT_DIR$/DemoGroupB-entity/DemoGroupB-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DemoGroupB-web/DemoGroupB-web.iml" filepath="$PROJECT_DIR$/DemoGroupB-web/DemoGroupB-web.iml" />
+    </modules>
+  </component>
+</project>

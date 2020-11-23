@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="DemoGroupB-entity" />
+        <module name="DemoGroupB-ejb" />
+        <module name="DemoGroupB-ear" />
+        <module name="DemoGroupB-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="DemoGroupB" target="1.5" />
+      <module name="DemoGroupB-ear" target="1.8" />
+      <module name="DemoGroupB-ejb" target="1.8" />
+      <module name="DemoGroupB-entity" target="1.8" />
+      <module name="DemoGroupB-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="DemoGroupB-ejb" options="-endorseddirs &quot;F:\Business Empire\First Internship FEST Nepal\Third Task\DemoGroupB\DemoGroupB\DemoGroupB-ejb\target/endorsed&quot;" />
+      <module name="DemoGroupB-web" options="-endorseddirs &quot;F:\Business Empire\First Internship FEST Nepal\Third Task\DemoGroupB\DemoGroupB\DemoGroupB-web\target/endorsed&quot;" />
+    </option>
+  </component>
+</project>
